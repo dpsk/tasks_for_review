@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MoveFast</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- <script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script> -->
+  <style type="text/css" media="screen">
+    div.main {
+      margin-top: 40px;
+    }
+    .form-group input { float:left; display:inline;   }
+    .parcel-form input { margin-right: 15px;}
+    .top-buffer { margin-top:20px; }
+    .disabled label{ color: grey; }
+
+  </style>
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Move Fast Parcel Price Calculator</a>
+      </div>
+    </div>
+  </div>
+
+    <div class="container main">
+        <div class="row top-buffer">
+          <div class="span12">
+            <form method="post" action="" role="form" class="form-inline parcel-form">
+              <div class="form-group">
+                <input type="text" id="width" value="" class="form-control" placeholder="Width" type="number">
+              </div>
+              <div class="form-group">
+                <input type="text" id="heigt" value="" class="form-control" placeholder="Height" type="number">
+              </div>
+              <div class="form-group">
+                <input type="text" id="length" value="" class="form-control" placeholder="Length" type="number">
+              </div>
+              <div class="form-group">
+                <input type="text" id="weight" value="" class="form-control" placeholder="Weight" onchange="PriceCalculator.calculateTotal();" onkeyup="this.onchange();">
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row top-buffer">
+              <form class="form-horizontal" method="post" action="#">
+
+                <div class="control-group">
+                  <label class="control-label"> Select provider</label>
+                  <div class="controls">
+                    <label class="radio">
+                      <input type="radio" id="ems" value="EMS" name="provider" onclick="PriceCalculator.calculateTotal();">
+                      <label for="ems">EMS</label>
+                    </label>
+                    <label class="radio">
+                      <input type="radio" id="priority" value="Priority" name="provider" onclick="PriceCalculator.calculateTotal();">
+                      <label for="priority">Priority</label>
+                    </label>
+                    <label class="radio">
+                      <input type="radio" id="courier" value="Courier" name="provider" onclick="PriceCalculator.calculateTotal();">
+                      <label for="courier">Courier</label>
+                    </label>
+                  </div>
+                </div>
+              </form>
+          </div>
+        </div>
+
+
+        <div class="container">
+          <div class="row top-buffer">
+            <div class="span12 total">
+              Total: <span id="total"></span>
+            </div>
+    </div>
+  <script src="js/price_calculator.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
